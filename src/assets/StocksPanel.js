@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Stock from './Stock'
 
-function StocksPanel(){
-    return (
-        <div className="StocksPanel">
-            <h2>This is a StocksPanel!</h2>
-            <ul>
-                <li>Sisältö1</li>
-                <li>Sisältö2</li>
-            </ul>
-        </div>
-    );
+export default class StocksPanel extends Component {
+    
+    render() {
+        const stockSymbol = 'IBM';
+        return (
+            <div>
+            <Stock stockSymbol={stockSymbol}/>
+            </div>
+        )
+    }
 }
 
-
-
-export default StocksPanel
