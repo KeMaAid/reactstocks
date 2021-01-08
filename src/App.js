@@ -6,9 +6,9 @@ import { useState } from 'react';
 
 
 function App() {
-  const settings = useState([
-
-  ]);
+  const [settings, setSettings] = useState({
+    listMaxSize: 10
+  });
 
   return (
     <div className="App">

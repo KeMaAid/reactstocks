@@ -3,6 +3,7 @@ import ListStocks from './ListStocks.js'
 import useState from 'react'
 
 const StockList = () =>{
+    const [word, setWord] = useState("");
 
     return (
         <div>
