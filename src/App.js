@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 function App() {
-  const [settings, setSettings] = useState({
+  const [setting, setSetting] = useState({
     listMaxSize: 10
   });
 
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <h1>This is the App</h1>
       <div className="control-panel">
-        <ControlPanel />
+        <ControlPanel setting={setting}/>
       </div>
       <div className="stocks-panel">
         <StocksPanel />

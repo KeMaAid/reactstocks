@@ -1,16 +1,13 @@
-import useState from 'react';
-
-const Searchbar = (word) => {
-
+const Searchbar = (props) => {
+    function handleChange(e){
+        props.onChange(e.target.value);
+    }
+    
     return (
         <div>
-            <input value={word} onChange={handleChange} />
+            <input value={props.word} onChange={handleChange} />
         </div>
     );
 } 
-
-function handleChange(e, setWord){
-    setWord(e.target.value);
-}
 
 export default Searchbar;

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const ListStocks = (word, listMaxSize) => {
+const ListStocks = (props) => {
     const [stocks] = useState([
         {name: "MSFT", value: 100, key:1},
         {name: "AMZN", value: 609, key:2},
@@ -12,15 +12,16 @@ const ListStocks = (word, listMaxSize) => {
     useEffect(() => {
         let fullList = stocks;
         
-        if(word !== ""){
+        if(props.word !== ""){
             let filteredList = fullList.filter(
-                stock => stock.name.toLowerCase().includes(word.toLowerCase())
+                stock => stock.name.toLowerCase()
+                .includes(props.word.toLowerCase())
             );
-            setDisplay(filteredList.slice(0, listMaxSize));
+            setDisplay(filteredList.slice(0, props.setting['listMaxSize']));
         } else {
-            setDisplay(fullList.slice(0, listMaxSize));
+            setDisplay(fullList.slice(0, props.setting['listMaxSize']));
         } 
-    });
+    }, [stocks, props.word, props.settings]);
 
     
     // todo change key and stock.name to work with real data
