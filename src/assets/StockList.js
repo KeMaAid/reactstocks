@@ -1,6 +1,5 @@
 import SearchBar from './SearchBar.js'
-import ChoosedStocks from './ChoosedStocks.js'
-import SuggestedStocks from './SuggestedStocks.js'
+import ListStocks from './ListStocks.js'
 import useState from 'react'
 
 const StockList = () =>{
@@ -8,12 +7,9 @@ const StockList = () =>{
     return (
         <div>
             <p>This is a StockList</p>
-            <div className="Searchbar">
+            <div className="Stocklist">
                 <SearchBar />
-            </div>
-            <div className="Stocks">
-                <ChoosedStocks />
-                <SuggestedStocks />
+                <ListStocks />
             </div>
         </div>
     );
