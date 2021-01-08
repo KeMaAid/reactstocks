@@ -1,7 +1,17 @@
-const SettingList = () => {
+const SettingList = props => {
 
-
-    return <p>This is a SettingList</p>;
+    return (
+        <div>
+            <p>This is a SettingList</p>
+            <input value={props.setting.listMaxSize} 
+            onChange={(e) => {
+                var value = parseInt(e.target.value)
+                if(isNaN(value)){
+                    value = props.setting.listMaxSize
+                };
+                props.onChange({...props.setting, listMaxSize: value});
+            }}/>
+        </div>);
 
 }
 

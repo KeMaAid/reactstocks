@@ -10,11 +10,15 @@ function App() {
     listMaxSize: 10
   });
 
+  function handleChange(newSetting){
+    setSetting(newSetting);
+  }
+
   return (
     <div className="App">
       <h1>This is the App</h1>
       <div className="control-panel">
-        <ControlPanel setting={setting}/>
+        <ControlPanel setting={setting} onChange={handleChange}/>
       </div>
       <div className="stocks-panel">
         <StocksPanel />

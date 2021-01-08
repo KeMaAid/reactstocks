@@ -2,7 +2,7 @@ import SearchBar from './SearchBar.js'
 import ListStocks from './ListStocks.js'
 import { useState } from 'react'
 
-const StockList = (props) =>{
+const StockList = props =>{
     const [word, setWord] = useState("");
 
     function handleChange(newWord){

@@ -21,19 +21,20 @@ const ListStocks = (props) => {
         } else {
             setDisplay(fullList.slice(0, props.setting['listMaxSize']));
         } 
-    }, [stocks, props.word, props.settings]);
+    }, [stocks, props.word, props.setting]);
 
     
     // todo change key and stock.name to work with real data
     return (
         <div>
-            {display.map((stock, key) => (
-                <div key={key}>
-                    <li>
+            <p>This is the showed list</p>
+            <ul>
+                {display.map((stock, key) => (
+                    <div key={key}>
                         {stock.name}
-                    </li>
-                </div>
-            ))}
+                    </div>
+                ))}
+            </ul>
         </div>
     );
 }

@@ -5,8 +5,8 @@ function StocksPanel(){
         <div className="StocksPanel">
             <h2>This is a StocksPanel!</h2>
             <ul>
-                <li>Sisältö1</li>
-                <li>Sisältö2</li>
+                <div>Sisältö1</div>
+                <div>Sisältö2</div>
             </ul>
         </div>
     );
