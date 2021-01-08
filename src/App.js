@@ -2,10 +2,17 @@
 import './App.css';
 import ControlPanel from './assets/ControlPanel.js';
 import StocksPanel from './assets/StocksPanel.js';
+import { useState } from 'react';
+
 
 function App() {
+  const settings = useState([
+
+  ]);
+
   return (
     <div className="App">
+      <h1>This is the App</h1>
       <div className="control-panel">
         <ControlPanel />
       </div>
