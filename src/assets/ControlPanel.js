@@ -1,8 +1,8 @@
 import SettingList from './SettingList.js'
 import StockList from './StockList.js'
-import useState from 'react'
+//import { useState } from 'react'
 
-const ControlPanel = () => {
+const ControlPanel = (props) => {
 
     
     return (
@@ -12,7 +12,7 @@ const ControlPanel = () => {
             <SettingList />
         </div>
         <div className="StockList">
-            <StockList />
+            <StockList setting={props.setting}/>
         </div>
     </div>);
 }
