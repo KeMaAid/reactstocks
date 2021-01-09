@@ -6,7 +6,7 @@ const Searchbar = props => {
     return (
         <div>
             <p>This is the Searchbar</p>
-            <input value={props.word} onChange={handleChange} />
+            <input value={props.passed} onChange={handleChange} />
         </div>
     );
 } 

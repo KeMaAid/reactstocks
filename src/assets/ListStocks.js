@@ -12,16 +12,16 @@ const ListStocks = (props) => {
     useEffect(() => {
         let fullList = stocks;
         
-        if(props.word !== ""){
+        if(props.passed !== ""){
             let filteredList = fullList.filter(
                 stock => stock.name.toLowerCase()
-                .includes(props.word.toLowerCase())
+                .includes(props.passed.toLowerCase())
             );
             setDisplay(filteredList.slice(0, props.setting['listMaxSize']));
         } else {
             setDisplay(fullList.slice(0, props.setting['listMaxSize']));
         } 
-    }, [stocks, props.word, props.setting]);
+    }, [stocks, props.passed, props.setting]);
 
     
     // todo change key and stock.name to work with real data

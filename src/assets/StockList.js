@@ -13,8 +13,8 @@ const StockList = props =>{
         <div>
             <p>This is a StockList</p>
             <div className="Stocklist">
-                <SearchBar onChange={handleChange} word={word}/>
-                <ListStocks setting={props.setting} word={word}/>
+                <SearchBar onChange={handleChange} passed={word}/>
+                <ListStocks setting={props.setting} passed={word}/>
             </div>
         </div>
     );
