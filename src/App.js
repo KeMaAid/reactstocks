@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 function App() {
   const [setting, setSetting] = useState({
-    listMaxSize:10
+    listMaxSize:10,
+    maxVisibleStock:9
   });
   const [visibleStocks, setVisibleStocks] = useState([]);
   //add all stocks here

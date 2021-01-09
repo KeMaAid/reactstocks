@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const ListStocks = ({onChange, setting, search, stocks, hiddenStocks}) => {
+const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
     const [display, setDisplay] = useState([]);
 
     useEffect(() => {
@@ -11,8 +11,8 @@ const ListStocks = ({onChange, setting, search, stocks, hiddenStocks}) => {
                 .includes(search.toLowerCase())
             );
         };
-        setDisplay(displayList.slice(0, setting['listMaxSize'])); 
-    }, [stocks, search, setting, hiddenStocks]);
+        setDisplay(displayList.slice(0, listMaxSize)); 
+    }, [stocks, search, listMaxSize, hiddenStocks]);
 
     function handleClick(e){
         onChange(e.target.value);
