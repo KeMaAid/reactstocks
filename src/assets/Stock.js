@@ -16,9 +16,7 @@ export class Stock extends Component {
         return (
             <div>
                 <p>{this.props.stockSymbol}</p>
-                
             </div>
-            
         )
     }
 }

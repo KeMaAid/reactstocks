@@ -11,10 +11,10 @@ function App() {
   const [visibleStocks, setVisibleStocks] = useState([]);
   //add all stocks here
   const [allStocks] = useState([
-    {name:"MSFT", value:69, key:1},
-    {name:"TSLA", value:800, key:2},
-    {name:"IBM", value:400, key:3},
-    {name:"AMZN", value:200, key:4}
+    {symbol:"MSFT", key:1},
+    {symbol:"TSLA", key:2},
+    {symbol:"IBM",  key:3},
+    {symbol:"AMZN", key:4}
   ]);
 
   function handleSettingChange(newSetting){
