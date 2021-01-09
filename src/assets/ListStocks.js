@@ -6,7 +6,7 @@ const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
     useEffect(() => {
         let displayList = stocks.filter(stock => !hiddenStocks.includes(stock));
         if(search !== ""){
-            displayList = stocks.filter(
+            displayList = displayList.filter(
                 stock => stock.symbol.toLowerCase()
                 .includes(search.toLowerCase())
             );
