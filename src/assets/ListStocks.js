@@ -1,39 +1,35 @@
 import {useState, useEffect} from 'react';
 
-const ListStocks = (props) => {
-    const [stocks] = useState([
-        {name: "MSFT", value: 100, key:1},
-        {name: "AMZN", value: 609, key:2},
-        {name: "TSLA", value: 1000, key:3}
-    ]); // todo iniate real stocks
+const ListStocks = ({onChange, setting, search, stocks, hiddenStocks}) => {
     const [display, setDisplay] = useState([]);
 
     // todo update to work with real data
     useEffect(() => {
-        let fullList = stocks;
-        
-        if(props.passed !== ""){
-            let filteredList = fullList.filter(
+        let displayList = stocks.filter(stock => !hiddenStocks.includes(stock));
+        if(search !== ""){
+            displayList = stocks.filter(
                 stock => stock.name.toLowerCase()
-                .includes(props.passed.toLowerCase())
+                .includes(search.toLowerCase())
             );
-            setDisplay(filteredList.slice(0, props.setting['listMaxSize']));
-        } else {
-            setDisplay(fullList.slice(0, props.setting['listMaxSize']));
-        } 
-    }, [stocks, props.passed, props.setting]);
+        };
+        setDisplay(displayList.slice(0, setting['listMaxSize'])); 
+    }, [stocks, search, setting, hiddenStocks]);
 
+    function handleClick(e){
+        onChange(e.target.value);
+    }
     
-    // todo change key and stock.name to work with real data
+    
+    // todo change stock.key and stock.name to work with real data
     return (
         <div>
             <p>This is the showed list</p>
             <ul>
-                {display.map((stock, key) => (
-                    <div key={key}>
+                {display.map(stock =>
+                    <button key={stock.key} value={stock.key} onClick={handleClick}>
                         {stock.name}
-                    </div>
-                ))}
+                    </button>    
+                )}
             </ul>
         </div>
     );
