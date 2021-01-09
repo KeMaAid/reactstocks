@@ -20,8 +20,7 @@ const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
     
 
     return (
-        <div>
-            <p>This is the showed list</p>
+        <div className="stocklist">
             <ul>
                 {display.map(stock =>
                     <button key={stock.key} value={stock.key} onClick={handleClick}>

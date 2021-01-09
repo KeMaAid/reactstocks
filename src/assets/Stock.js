@@ -14,7 +14,7 @@ export class Stock extends Component {
     render() {
         
         return (
-            <div>
+            <div className="stock">
                 <p>{this.props.stockSymbol}</p>
             </div>
         )

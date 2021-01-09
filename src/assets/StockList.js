@@ -18,10 +18,9 @@ const StockList = props =>{
 
     return (
         <div>
-            <p>This is a StockList</p>
-            <div className="Stocklist">
+            <div className="Stock-picker">
                 <SearchBar onChange={handleSearchChange} passed={searchWord}/>
-                <p>Visible Stocks</p>
+                <p>Chosen Stocks</p>
                 <ListStocks onChange={handleVisibleStockRemove} listMaxSize={props.setting['maxVisibleStock']} search={""} stocks={props.visibleStocks} hiddenStocks={[]}/>
                 <p>Available Stocks</p>
                 <ListStocks onChange={handleVisibleStockAddittion} listMaxSize={props.setting['listMaxSize']} search={searchWord} stocks={props.allStocks} hiddenStocks={props.visibleStocks}/>

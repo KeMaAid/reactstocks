@@ -4,8 +4,7 @@ const Searchbar = props => {
     }
     
     return (
-        <div>
-            <p>This is the Searchbar</p>
+        <div className="search-bar">
             <input value={props.passed} onChange={handleChange} />
         </div>
     );

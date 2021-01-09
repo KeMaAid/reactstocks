@@ -36,13 +36,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>This is the App</h1>
-      <div className="control-panel">
         <ControlPanel onSettingChange={handleSettingChange} onVisibleStockChange={handleVisibleStockChange} setting={setting} visibleStocks={visibleStocks} allStocks={allStocks}/>
-      </div>
-      <div className="stocks-panel">
         <StocksPanel visibleStocks={visibleStocks}/>
-      </div>
     </div>
   );
 }
