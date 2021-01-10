@@ -1,72 +1,69 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { LineSeriesCanvas, XYPlot } from 'react-vis';
+import React from 'react'
 
-const processData = (data) => {
-            return data.map(e => ({
-              x: e["4. close"],
-              y: e
-            }));
-          };
+import Plot from 'react-plotly.js';
+class Stock extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            stockChartXValues: [],
+            stockChartYValues: [],
 
-export class Stock extends Component {
-    state = {
-        rawData: null,
-        stockData: [],
-        hasLoaded: false,
-        test: [
-            {x: 0, y: 8},
-            {x: 1, y: 5},
-            {x: 2, y: 4},
-            {x: 3, y: 9},
-            {x: 4, y: 1},
-            {x: 5, y: 7},
-            {x: 6, y: 6},
-            {x: 7, y: 3},
-            {x: 8, y: 2},
-            {x: 9, y: 0}
-          ]
+        }
     }
-    
-    componentDidMount() {
-        axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + this.props.stockSymbol + "&apikey=MFBETSKQD126AMHH")
-        .then(res => this.setState({rawsData: res.data}));
-        this.setState({hasLoaded: true});
-
-
-
+    componentDidMount(){
+        this.fetchStock();
     }
-    
-    stockData(){
-        if(!this.state.hasLoaded){
-            return(<p>Loading Data</p>);
-        }if (this.state.hasLoaded) {
-            return(
-                <ul>
-                    {this.state.stock["Meta Data"["2. Symbol"]]}
-                </ul>
-            )    
-        }; 
-        
-                   
-         
+
+    fetchStock(){
+        const pointerToThis = this;
+        const API_Key = 'MFBETSKQD126AMHH';
+        let StockSymbol = this.props.stockSymbol;
+        let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&apikey=${API_Key}`
+        let stockChartXValuesFunction = [];
+        let stockChartYValuesFunction = [];
+
+        fetch(API_Call)
+            .then(
+                function(response){
+                    return response.json();
+                }
+            )
+            .then(
+                function(data){
+                    console.log(data)
+
+                    for(var key in data['Time Series (Daily)']){
+                        stockChartXValuesFunction.push(key);
+                        stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
+                    }
+                    pointerToThis.setState({
+                        stockChartXValues: stockChartXValuesFunction,
+                        stockChartYValues: stockChartYValuesFunction
+                    });
+                }
+            )
     }
-    
     render(){
-        
         return (
-            <div className="stock">
-                <h1>Name: {this.props.stockSymbol}</h1>
+            <div>
                 
-                {this.stockData}
-                
-                <XYPlot height={200} width={200}>
-                    <LineSeriesCanvas data={this.state.test} />
-                </XYPlot>
-                
+                <Plot 
+                data={[
+                    {
+                        x: this.state.stockChartXValues,
+                        y: this.state.stockChartYValues,
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        marker: {color: 'red'},
+                    },
+                    
+                ]}
+                layout={{width: 720, height: 440, title: this.props.stockSymbol}}
+                />
             </div>
-        );
+        )
     }
+        
 }
 
-export default Stock
+export default Stock;
