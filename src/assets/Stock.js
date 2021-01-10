@@ -11,7 +11,7 @@ const processData = (data) => {
 
 export class Stock extends Component {
     state = {
-        stock: null,
+        rawData: null,
         hasLoaded: false,
         test: [
             {x: 0, y: 8},
@@ -29,7 +29,7 @@ export class Stock extends Component {
     
     componentDidMount() {
         axios.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + this.props.stockSymbol + "&apikey=MFBETSKQD126AMHH")
-        .then(res => this.setState({stock: processData(res.data["Time Series (Daily)"])}));
+        .then(res => this.setState({rawsData: res.data}));
         this.setState({hasLoaded: true});
 
 
@@ -60,7 +60,7 @@ export class Stock extends Component {
                 {this.stockData}
                 
                 <XYPlot height={200} width={200}>
-                    <LineSeriesCanvas data={this.state.stock} />
+                    <LineSeriesCanvas data={test} />
                 </XYPlot>
                 
             </div>
