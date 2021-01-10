@@ -12,6 +12,7 @@ const processData = (data) => {
 export class Stock extends Component {
     state = {
         rawData: null,
+        stockData: [],
         hasLoaded: false,
         test: [
             {x: 0, y: 8},
@@ -60,7 +61,7 @@ export class Stock extends Component {
                 {this.stockData}
                 
                 <XYPlot height={200} width={200}>
-                    <LineSeriesCanvas data={test} />
+                    <LineSeriesCanvas data={this.state.test} />
                 </XYPlot>
                 
             </div>
