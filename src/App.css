@@ -10,12 +10,12 @@ body{
 
 .App {
   text-align: center;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:"ControlPanel StocksPanel";
   margin : auto;
   padding: 10px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 
@@ -23,12 +23,15 @@ body{
   display: grid;
   grid-gap:1px;
   grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-content: start;
+  grid-auto-rows: 20%;
 }
 
 .Chart{
   padding:10px;
-  height:20%;
-  width:30%;
+  
+  
 }
 
 .ControlPanel{
@@ -36,15 +39,12 @@ body{
   border-radius: 25px;
   border: 4px solid var(--base03);
   padding: 20px;
-  width: 33%;
 }
 
 .Settings{
-
 }
 
 .StockPicker{
-
 }
 
 .Searchbar{
