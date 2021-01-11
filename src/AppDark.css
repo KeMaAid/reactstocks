@@ -1,0 +1,72 @@
+:root{
+  --base03: #1b1b1b;
+  --base02: #252525;
+  --base01: #676767;
+  --base00: #747474;
+}
+body{
+  background-color: var(--base02);
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin : auto;
+  padding: 10px;
+}
+
+
+.StocksPanel{
+  flex: 2;
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  max-width: 20%;
+}
+
+.Stock{
+
+}
+
+.ControlPanel{
+  flex:1;
+}
+
+.SettingList{
+
+}
+
+.StockList{
+
+}
+
+.SearchBar{
+
+}
+
+.ListStocks{
+
+}
+
+
+
+
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
