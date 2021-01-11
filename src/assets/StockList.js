@@ -17,14 +17,12 @@ const StockList = props =>{
     }
 
     return (
-        <div>
-            <div className="Stock-picker">
-                <SearchBar onChange={handleSearchChange} passed={searchWord}/>
-                <p>Chosen Stocks</p>
-                <ListStocks onChange={handleVisibleStockRemove} listMaxSize={props.setting['maxVisibleStock']} search={""} stocks={props.visibleStocks} hiddenStocks={[]}/>
-                <p>Available Stocks</p>
-                <ListStocks onChange={handleVisibleStockAddittion} listMaxSize={props.setting['listMaxSize']} search={searchWord} stocks={props.allStocks} hiddenStocks={props.visibleStocks}/>
-            </div>
+        <div className="StockPicker">
+            <SearchBar onChange={handleSearchChange} passed={searchWord}/>
+            <p>Chosen Stocks</p>
+            <ListStocks onChange={handleVisibleStockRemove} listMaxSize={props.setting['maxVisibleStock']} search={""} stocks={props.visibleStocks} hiddenStocks={[]}/>
+            <p>Available Stocks</p>
+            <ListStocks onChange={handleVisibleStockAddittion} listMaxSize={props.setting['listMaxSize']} search={searchWord} stocks={props.allStocks} hiddenStocks={props.visibleStocks}/>
         </div>
     );
 }

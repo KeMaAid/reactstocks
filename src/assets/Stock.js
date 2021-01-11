@@ -45,7 +45,7 @@ class Stock extends React.Component{
     }
     render(){
         return (
-            <div>
+            <div className="Chart">
                 
                 <Plot 
                 data={[

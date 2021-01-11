@@ -8,7 +8,7 @@ const ControlPanel = props => {
     }
 
     return (
-        <div className="control-panel">
+        <div className="ControlPanel">
             <SettingList setting={props.setting} onChange={e => props.onSettingChange(e)}/>
             <StockList setting={props.setting} onVisibleStockChange={handleVisibleStockChange} visibleStocks={props.visibleStocks} allStocks={props.allStocks}/>
         </div>

@@ -1,4 +1,4 @@
-import './AppDark.css';
+import './App.css';
 import ControlPanel from './assets/ControlPanel.js';
 import StocksPanel from './assets/StocksPanel.js';
 import { useState } from 'react';
