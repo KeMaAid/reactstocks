@@ -8,7 +8,7 @@ export default class StocksPanel extends Component {
             <div className="StocksPanel">
                 <ul>
                     {this.props.visibleStocks.map(stock =>           
-                        <Stock key={stock.key} stockSymbol={stock.symbol} />
+                        <Stock key={stock.key} stockSymbol={stock.symbol} placeholder="Search here"/>
                     )}
                 </ul>
             </div>
