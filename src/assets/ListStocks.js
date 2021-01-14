@@ -16,20 +16,17 @@ const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
 
     function handleClick(e){
         onChange(e.target.value);
-    }
-    
-
+    };
+  
     return (
-        <div className="Stocklist">
-            <ul>
-                {display.map(stock =>
-                    <button key={stock.key} value={stock.key} onClick={handleClick}>
-                        {stock.symbol}
-                    </button>    
-                )}
-            </ul>
-        </div>
+        <ul>
+            {display.map(stock => 
+                <button key={stock.key} value={stock.key} onClick={handleClick}>
+                    {stock.symbol}
+                </button>
+            )}
+        </ul>
     );
-}
+};
 
 export default ListStocks;

@@ -58,7 +58,7 @@ class Stock extends React.Component{
                     },
                     
                 ]}
-                layout={{width: 720, height: 440, title: this.props.stockSymbol}}
+                layout={{autocolorscale: true, autosize: true, title: this.props.stockSymbol}}
                 />
             </div>
         )

@@ -14,7 +14,7 @@ const SettingList = props => {
     return (
         <div className="Settings">
             <p>Limit available stocklist</p>
-            <Searchbar passed={props.setting.listMaxSize} onChange={handleListChange}/>
+            <Searchbar passed={props.setting.listMaxSize} onChange={handleListChange} placeholder="0"/>
         </div>);
 
 }
