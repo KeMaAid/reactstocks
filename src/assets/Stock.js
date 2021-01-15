@@ -13,7 +13,7 @@ class Stock extends React.Component{
 
     getStyle = () => {
         return {
-            padding:'10px',
+            padding:'6px',
             border:'4px solid var(--base03)',
             borderRadius: '25px',
             background: '#5e5e5e',
@@ -77,7 +77,7 @@ class Stock extends React.Component{
                     xaxis: {color: '#fff'},
                     yaxis: {color: '#fff'},
                     width: '600',
-                    height: '450',
+                    height: '360',
                     title: this.props.stockSymbol}}
                 />
             </div>
