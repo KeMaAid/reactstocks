@@ -46,6 +46,9 @@ body{
   padding:                20px;
   background:             var(--base01);
 }
+input{
+  width:                  95%;
+}
 
 .StockPicker ul{
   max-height:             calc(100vh -180px);
