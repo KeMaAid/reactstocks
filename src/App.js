@@ -22,12 +22,11 @@ function App() {
     {symbol:"NDAQ", key:8},
     {symbol:"NET", key:9},
     {symbol:"NFLX", key:10},
-    {symbol:"MSFT", key:11},
-    {symbol:"GOOG", key:12},
-    {symbol:"GM", key:13},
-    {symbol:"INTC", key:14},
-    {symbol:"AMD", key:15},
-    {symbol:"NVDA", key:16}
+    {symbol:"GOOG", key:11},
+    {symbol:"GM", key:12},
+    {symbol:"INTC", key:13},
+    {symbol:"AMD", key:14},
+    {symbol:"NVDA", key:15}
   ]);
 
   function handleSettingChange(newSetting){
