@@ -15,6 +15,7 @@ const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
     }, [stocks, search, listMaxSize, hiddenStocks]);
 
     function handleClick(e){
+        e.preventDefault();
         onChange(e.target.value);
     };
   

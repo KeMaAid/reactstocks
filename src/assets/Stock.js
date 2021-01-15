@@ -11,16 +11,6 @@ class Stock extends React.Component{
         }
     }
 
-    getStyle = () => {
-        return {
-            padding:'10px',
-            border:'4px solid var(--base03)',
-            borderRadius: '25px',
-            background: '#5e5e5e',
-            
-        }
-    }
-
     componentDidMount(){
         this.fetchStock();
     }
@@ -56,7 +46,7 @@ class Stock extends React.Component{
     }
     render(){
         return (
-            <div style={this.getStyle()} className="Chart">
+            <div className="Chart">
                 
                 <Plot 
                 data={[
@@ -72,12 +62,12 @@ class Stock extends React.Component{
                 layout={{
                     autocolorscale: true,
                     font: {color: '#fff'},
-                    plot_bgcolor: '#5e5e5e',
-                    paper_bgcolor: '#5e5e5e',
+                    plot_bgcolor: '#252525',
+                    paper_bgcolor: '#252525',
                     xaxis: {color: '#fff'},
                     yaxis: {color: '#fff'},
-                    width: '600',
-                    height: '450',
+                    width: '450',
+                    height: '300',
                     title: this.props.stockSymbol}}
                 />
             </div>
