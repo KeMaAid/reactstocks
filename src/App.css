@@ -61,7 +61,7 @@ button{
   display:                inline-block;
   width:                  100%;
   background:             var(--base00);
-
+  color:                 var(--font);
 }
 
 button:active{
@@ -80,3 +80,6 @@ button:active{
   background:             var(--accent02);
 }
 
+.Settings p{
+  margin:                 0;
+}
