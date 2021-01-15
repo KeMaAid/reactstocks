@@ -16,7 +16,7 @@ class Stock extends React.Component{
             padding:'10px',
             border:'4px solid var(--base03)',
             borderRadius: '25px',
-            
+            background: '#5e5e5e',
             
         }
     }
@@ -69,7 +69,16 @@ class Stock extends React.Component{
                     },
                     
                 ]}
-                layout={{autocolorscale: true,font: {color: '#fff'}, plot_bgcolor: '#5e5e5e', paper_bgcolor: '#5e5e5e', width: '600', height: '450', title: this.props.stockSymbol}}
+                layout={{
+                    autocolorscale: true,
+                    font: {color: '#fff'},
+                    plot_bgcolor: '#5e5e5e',
+                    paper_bgcolor: '#5e5e5e',
+                    xaxis: {color: '#fff'},
+                    yaxis: {color: '#fff'},
+                    width: '600',
+                    height: '450',
+                    title: this.props.stockSymbol}}
                 />
             </div>
         )
