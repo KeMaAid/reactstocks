@@ -29,7 +29,7 @@ body{
 }
 
 .StocksPanel .Chart{
-  display:                inline;
+  display:                inline-block;
   vertical-align:         top;
   width:                  auto;
   background:             var(--base01);
