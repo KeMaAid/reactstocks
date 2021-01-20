@@ -66,7 +66,7 @@ class Stock extends React.Component{
                     paper_bgcolor: '#252525',
                     xaxis: {color: '#fff'},
                     yaxis: {color: '#fff'},
-                    width: '450',
+                    width: '440',
                     height: '300',
                     title: this.props.stockSymbol}}
                 />
