@@ -10,34 +10,35 @@ function App() {
     maxVisibleStock:9
   });
   const [visibleStocks, setVisibleStocks] = useState([]);
+  
   //add a function to get all stocks here
   const [allStocks] = useState([
-    {symbol:"MSFT", key:1},
-    {symbol:"TSLA", key:2},
-    {symbol:"IBM",  key:3},
-    {symbol:"AMZN", key:4},
-    {symbol:"ABB", key:5},
-    {symbol:"NOK", key:6},
-    {symbol:"KO", key:7},
-    {symbol:"NDAQ", key:8},
-    {symbol:"NET", key:9},
-    {symbol:"NFLX", key:10},
-    {symbol:"GOOG", key:11},
-    {symbol:"GM", key:12},
-    {symbol:"INTC", key:13},
-    {symbol:"AMD", key:14},
-    {symbol:"NVDA", key:15}
+    {symbol:"MSFT"},
+    {symbol:"TSLA"},
+    {symbol:"IBM"},
+    {symbol:"AMZN"},
+    {symbol:"ABB"},
+    {symbol:"NOK"},
+    {symbol:"KO"},
+    {symbol:"NDAQ"},
+    {symbol:"NET"},
+    {symbol:"NFLX"},
+    {symbol:"GOOG"},
+    {symbol:"GM"},
+    {symbol:"INTC"},
+    {symbol:"AMD"},
+    {symbol:"NVDA"}
   ]);
 
   function handleSettingChange(newSetting){
     setSetting(newSetting);
   }
 
-  //changeType ? addition : deletion
-  function handleVisibleStockChange(changeStock, changeType){
+  //isAddition ? addition : deletion
+  function handleVisibleStockChange(changeStock, isAddition){
     var newVisibleStocks = [];
 
-    if(changeType){
+    if(isAddition){
       newVisibleStocks=visibleStocks.concat(changeStock);
     } else {
       newVisibleStocks=visibleStocks.filter(stock => stock !== changeStock);

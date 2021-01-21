@@ -3,8 +3,8 @@ import StockList from './StockList.js'
 
 const ControlPanel = props => {
     
-    function handleVisibleStockChange(stock, changeType) {
-        props.onVisibleStockChange(stock, changeType)    
+    function handleVisibleStockChange(stock, isAddition) {
+        props.onVisibleStockChange(stock, isAddition)    
     }
 
     return (
