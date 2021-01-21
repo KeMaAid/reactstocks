@@ -1,6 +1,6 @@
 import './App.css';
-import ControlPanel from './assets/Control/ControlPanel.js';
-import StocksPanel from './assets/Stock/StocksPanel.js';
+import ControlPanel from './Components/Control/ControlPanel.js';
+import StocksPanel from './Components/Stock/StocksPanel.js';
 import { useState } from 'react';
 
 
