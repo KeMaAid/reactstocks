@@ -9,11 +9,11 @@ const StockList = props =>{
         setSearchWord(newWord);
     }
 
-    function handleVisibleStockAddittion(newStockKey){
-        props.onVisibleStockChange(props.allStocks.find(stock => stock.key === parseInt(newStockKey)), true);
+    function handleVisibleStockAddittion(newStockSymbol){
+        props.onVisibleStockChange(props.allStocks.find(stock => stock.symbol === newStockSymbol), true);
     }
-    function handleVisibleStockRemove(removedStockKey){
-        props.onVisibleStockChange(props.allStocks.find(stock => stock.key === parseInt(removedStockKey)), false);
+    function handleVisibleStockRemove(removedStockSymbol){
+        props.onVisibleStockChange(props.allStocks.find(stock => stock.symbol === removedStockSymbol), false);
     }
 
     return (

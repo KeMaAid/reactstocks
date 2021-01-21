@@ -7,7 +7,7 @@ export default class StocksPanel extends Component {
         return (
             <ul className="StocksPanel">
                 {this.props.visibleStocks.map(stock =>           
-                    <Stock key={stock.key} stockSymbol={stock.symbol} placeholder="Search here"/>
+                    <Stock key={stock.symbol} stockSymbol={stock.symbol} placeholder="Search here"/>
                 )}
             </ul>
         )
