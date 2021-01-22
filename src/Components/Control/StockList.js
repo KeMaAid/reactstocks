@@ -21,10 +21,10 @@ const StockList = props =>{
             <SearchBar onChange={handleSearchChange} passed={searchWord} placeholder="Search"/>
             <ul>
                 <div className="Chosen-stocks">
-                    <ListStocks onChange={handleVisibleStockRemove} listMaxSize={props.setting['maxVisibleStock']} search={""} stocks={props.visibleStocks} hiddenStocks={[]}/>
+                    <ListStocks onChange={handleVisibleStockRemove} listMaxSize={(props.visibleStocks).length} search={""} stocks={props.visibleStocks} hiddenStocks={[]}/>
                 </div>
                 <div className="Available-stocks">
-                    <ListStocks className="Available-stocks" onChange={handleVisibleStockAddittion} listMaxSize={props.setting['listMaxSize']} search={searchWord} stocks={props.allStocks} hiddenStocks={props.visibleStocks}/>
+                    <ListStocks className="Available-stocks" onChange={handleVisibleStockAddittion} listMaxSize={props.listMaxSize} search={searchWord} stocks={props.allStocks} hiddenStocks={props.visibleStocks}/>
                 </div>
             </ul>
         </div>

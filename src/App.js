@@ -5,12 +5,9 @@ import { useState } from 'react';
 
 
 function App() {
-  const [setting, setSetting] = useState({
-    listMaxSize:10,
-    maxVisibleStock:9
-  });
   const [visibleStocks, setVisibleStocks] = useState([]);
-  
+
+
   //add a function to get all stocks here
   const [allStocks] = useState([
     {symbol:"MSFT"},
@@ -30,10 +27,6 @@ function App() {
     {symbol:"NVDA"}
   ]);
 
-  function handleSettingChange(newSetting){
-    setSetting(newSetting);
-  }
-
   //isAddition ? addition : deletion
   function handleVisibleStockChange(changeStock, isAddition){
     var newVisibleStocks = [];
@@ -48,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-        <ControlPanel onSettingChange={handleSettingChange} onVisibleStockChange={handleVisibleStockChange} setting={setting} visibleStocks={visibleStocks} allStocks={allStocks}/>
+        <ControlPanel onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} allStocks={allStocks}/>
         <StocksPanel visibleStocks={visibleStocks}/>
     </div>
   );

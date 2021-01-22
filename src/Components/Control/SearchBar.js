@@ -1,11 +1,8 @@
 const Searchbar = props => {
-    function handleChange(e){
-        props.onChange(e.target.value);
-    }
     
     return (
         <div className="Searchbar">
-            <input value={props.passed} onChange={handleChange} placeholder={props.placeholder} />
+            <input value={props.passed} onChange={e => props.onChange(e)} placeholder={props.placeholder} />
         </div>
     );
 } 
