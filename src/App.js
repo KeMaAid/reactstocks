@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 function App() {
   const [visibleStocks, setVisibleStocks] = useState([]);
-
+  const [timeRange, setTimeRange] = useState([20, 60]);
 
   //add a function to get all stocks here
   const [allStocks] = useState([
@@ -41,8 +41,11 @@ function App() {
 
   return (
     <div className="App">
-        <ControlPanel onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} allStocks={allStocks}/>
-        <StocksPanel visibleStocks={visibleStocks}/>
+        <ControlPanel timeRange={timeRange} onTimeRangeChange={value => setTimeRange(value)}
+                      onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} 
+                      allStocks={allStocks}
+        />
+        <StocksPanel visibleStocks={visibleStocks} timeRange={timeRange}/>
     </div>
   );
 }

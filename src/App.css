@@ -46,6 +46,7 @@ body{
   padding:                10px;
   background:             var(--base01);
 }
+
 input{
   width:                  95%;
 }
@@ -78,6 +79,9 @@ button:active{
 
 .Available-stocks ul button:hover{
   background:             var(--accent02);
+}
+.Settings {
+  margin-bottom:          10px;
 }
 
 .Settings p{
