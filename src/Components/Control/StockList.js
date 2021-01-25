@@ -7,56 +7,58 @@ const StockList = props =>{
     const [searchStocks, setSearchStocks] = useState([]);
 
 
-    function handleVisibleStockAddittion(newStockSymbol){
-        props.onVisibleStockChange(props.allStocks.find(stock => stock.symbol === newStockSymbol), true);
+    function handleVisibleStockAddition(newStock){
+        props.onVisibleStockChange(newStock, true);
     }
-    function handleVisibleStockRemove(removedStockSymbol){
-        props.onVisibleStockChange(props.allStocks.find(stock => stock.symbol === removedStockSymbol), false);
+    function handleVisibleStockRemove(removedStock){
+        props.onVisibleStockChange(removedStock, false);
     }
 
-    //add error handeling for companies with same stocksymbol or name in different markets 
+    //add handeling for companies with same name in different markets 
     function fetchSearch(newSearch){
         const API_Key = 'MFBETSKQD126AMHH';
         let API_Call = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${newSearch}&apikey=${API_Key}`
-        var searchedStocks = [];
-        
-        if(newSearch.length > 2){
+
+        if(newSearch.length>2){
             fetch(API_Call)
                 .then(
-                    function(response){
+                    function (response) {
                         return response.json();
                     }
                 ).then(
-                    function(data){
-
-                        if(data.hasOwnProperty('bestMatches')){
-                            for(var result of data['bestMatches']){
+                    function (data) {
+                        var searchedStocks = [];
+                        if (data.hasOwnProperty('bestMatches')) {
+                            for (var result of data['bestMatches']) {
                                 searchedStocks.push({symbol: result['1. symbol'], name: result['2. name']});
-                            }
-                        } else if (data.hasOwnProperty('Note')){
-                            searchedStocks = [ {symbol: null, name: "Please wait"}];
+                            };
+                        } else if (data.hasOwnProperty('Note')) {
+                            searchedStocks = [{ symbol: null, name: "Please wait" }];
                         } else if (data.hasOwnProperty('Error Message')) {
-                            searchedStocks = [ {symbol: null, name: "Invalid input"}];
+                            searchedStocks = [{ symbol: null, name: "Invalid input" }];
                         }
                         setSearchStocks(searchedStocks);
                     }
                 );
         } else {
-            setSearchStocks(searchedStocks);
-        }   
+            setSearchStocks([]);
+        }
     }
 
     return (
         <div className="StockPicker">
-            <SearchBar onChange={newWord => {fetchSearch(newWord);setSearchWord(newWord);}} passed={searchWord} placeholder="Search here"/>
-            <ul>
-                <div className="Chosen-stocks">
-                    <ListStocks onChange={handleVisibleStockRemove} listMaxSize={(props.visibleStocks).length} stocks={props.visibleStocks}/>
-                </div>
-                <div className="Search-stocks">
-                    <ListStocks className="Available-stocks" onChange={handleVisibleStockAddittion} listMaxSize={props.listMaxSize} stocks={searchStocks} />
-                </div>
-            </ul>
+            <SearchBar onChange={newWord => {fetchSearch(newWord);setSearchWord(newWord);}}
+            passed={searchWord} placeholder="Search here"/>
+            <div className="Chosen-stocks">
+                <ListStocks onChange={handleVisibleStockRemove} 
+                stocks={props.visibleStocks} hiddenStocks={[]}
+                listMaxSize={props.listMaxSize} />
+            </div>
+            <div className="Search-stocks">
+                <ListStocks onChange={handleVisibleStockAddition}
+                 stocks={searchStocks} hiddenStocks={props.visibleStocks} 
+                 listMaxSize={props.listMaxSize}/>
+            </div>
         </div>
     );
 }

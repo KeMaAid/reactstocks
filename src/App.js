@@ -8,25 +8,6 @@ function App() {
   const [visibleStocks, setVisibleStocks] = useState([]);
   const [timeRange, setTimeRange] = useState([20, 60]);
 
-  //add a function to get all stocks here
-  const [allStocks] = useState([
-    {symbol:"MSFT"},
-    {symbol:"TSLA"},
-    {symbol:"IBM"},
-    {symbol:"AMZN"},
-    {symbol:"ABB"},
-    {symbol:"NOK"},
-    {symbol:"KO"},
-    {symbol:"NDAQ"},
-    {symbol:"NET"},
-    {symbol:"NFLX"},
-    {symbol:"GOOG"},
-    {symbol:"GM"},
-    {symbol:"INTC"},
-    {symbol:"AMD"},
-    {symbol:"NVDA"}
-  ]);
-
   //isAddition ? addition : deletion
   function handleVisibleStockChange(changeStock, isAddition){
     var newVisibleStocks = [];
@@ -43,7 +24,6 @@ function App() {
     <div className="App">
         <ControlPanel timeRange={timeRange} onTimeRangeChange={value => setTimeRange(value)}
                       onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} 
-                      allStocks={allStocks}
         />
         <StocksPanel visibleStocks={visibleStocks} timeRange={timeRange}/>
     </div>

@@ -1,18 +1,20 @@
-const ListStocks = ({onChange, stocks}) => {
+import {useState, useEffect} from 'react';
 
+const ListStocks = props => {
+    const [display, setDisplay] = useState([]);
 
-    function handleClick(e){
-        e.preventDefault();
-        onChange(e.target.value);
-    };
-  
+    useEffect(() => {
+        let displayList = props.stocks.filter(stock => !props.hiddenStocks.includes(stock));
+        setDisplay(displayList.slice(0, props.listMaxSize)); 
+    }, [props]);
+    
     return (
         <ul>
-            {stocks.map(stock => 
-                <button key={stock.symbol} onClick={handleClick}>
+            {display.map(stock => (
+                <button key={stock.symbol}  onClick={() => props.onChange(stock)}>
                     {stock.name}
                 </button>
-            )}
+            ))}
         </ul>
     );
 };

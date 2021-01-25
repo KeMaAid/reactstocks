@@ -11,11 +11,10 @@ const ControlPanel = props => {
 
     return (
         <div className="ControlPanel">
-            <SettingList listMaxSize={listMaxSize} onListMaxSizeChange={e => setListMaxSize(e.target.value)}
+            <SettingList listMaxSize={listMaxSize} onListMaxSizeChange={value => setListMaxSize(value)}
                         timeRange={props.timeRange} onTimeRangeChange={value => props.onTimeRangeChange(value)}
             />
             <StockList  onVisibleStockChange={handleVisibleStockChange} visibleStocks={props.visibleStocks} 
-                        allStocks={props.allStocks} 
                         listMaxSize={listMaxSize}
             />
         </div>

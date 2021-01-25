@@ -69,12 +69,19 @@ button:active{
   position:               relative;
   top:                    1px;
 }
+.Chosen-stocks ul{
+  margin-bottom: 0;
+}
 
 .Chosen-stocks ul button{
   background:             var(--accent00);
 }
 .Chosen-stocks ul button:hover{
   background:             var(--accent01);
+}
+
+.Search-stocks ul{
+  margin-top:0;
 }
 
 .Search-stocks ul button:hover{
