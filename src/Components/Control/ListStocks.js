@@ -1,18 +1,5 @@
-import {useState, useEffect} from 'react';
+const ListStocks = ({onChange, stocks}) => {
 
-const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
-    const [display, setDisplay] = useState([]);
-
-    useEffect(() => {
-        let displayList = stocks.filter(stock => !hiddenStocks.includes(stock));
-        if(search !== ""){
-            displayList = displayList.filter(
-                stock => stock.symbol.toLowerCase()
-                .includes(search.toLowerCase())
-            );
-        };
-        setDisplay(displayList.slice(0, listMaxSize)); 
-    }, [stocks, search, listMaxSize, hiddenStocks]);
 
     function handleClick(e){
         e.preventDefault();
@@ -21,9 +8,9 @@ const ListStocks = ({onChange, listMaxSize, search, stocks, hiddenStocks}) => {
   
     return (
         <ul>
-            {display.map(stock => 
-                <button key={stock.symbol} value={stock.symbol} onClick={handleClick}>
-                    {stock.symbol}
+            {stocks.map(stock => 
+                <button key={stock.symbol} onClick={handleClick}>
+                    {stock.name}
                 </button>
             )}
         </ul>
