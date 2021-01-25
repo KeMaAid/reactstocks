@@ -77,7 +77,7 @@ button:active{
   background:             var(--accent01);
 }
 
-.Available-stocks ul button:hover{
+.Search-stocks ul button:hover{
   background:             var(--accent02);
 }
 .Settings {
