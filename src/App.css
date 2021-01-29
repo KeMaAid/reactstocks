@@ -42,6 +42,9 @@ body{
   .ControlPanel{
     min-width: stretch;
   }
+  .StocksPanel{
+    min-width: stretch;
+  }
 }
 
 .ControlPanel{
