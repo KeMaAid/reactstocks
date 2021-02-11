@@ -52,7 +52,7 @@ const StockList = props =>{
             <div className="Chosen-stocks">
                 <ListStocks onChange={handleVisibleStockRemove} 
                 stocks={props.visibleStocks} hiddenStocks={[]}
-                listMaxSize={props.listMaxSize} />
+                listMaxSize={props.visibleStocks.length} />
             </div>
             <div className="Search-stocks">
                 <ListStocks onChange={handleVisibleStockAddition}
