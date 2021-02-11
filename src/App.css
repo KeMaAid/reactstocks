@@ -15,43 +15,39 @@ body{
 
 .App {
   text-align:             center;
-  align-items:            center;
+  align-items:            flex-start;
+  align-content:          flex-start;
+  overflow-wrap:          break-word;
   display:                flex;
-  flex-flow:              row wrap;
+  flex-direction:         row;
 }
 
 .StocksPanel{
-  flex:                   1;
   margin:                 0;
   padding:                0;
-  display:                block;
-  width:                  100%;
 }
 
 .StocksPanel .Chart{
   display:                inline-block;
-  vertical-align:         top;
-  width:                  auto;
   background:             var(--base01);
-  padding:                6px;
-  border:                 4px solid var(--base03);
-  border-radius:          25px;
+  padding:                5px;
+  border:                 2px solid var(--base03);
+  border-radius:          20px;
 }
 
-@media only screen and (max-width:600px){
-  .ControlPanel{
-    min-width: stretch;
+@media only screen and (max-width: 600px){
+  .App{
+    flex-direction:       column;
   }
-  .StocksPanel{
-    min-width: stretch;
+  .StocksPanel, .ControlPanel{
+    flex:                 0 0 auto;
   }
 }
 
 .ControlPanel{
-  flex:                   1;
-  max-width:              20%;
-  border-radius:          25px;
-  border:                 4px solid var(--base03);
+  width:                  20%;
+  border-radius:          20px;
+  border:                 2px solid var(--base03);
   padding:                10px;
   background:             var(--base01);
 }
@@ -71,7 +67,7 @@ button{
   display:                inline-block;
   width:                  100%;
   background:             var(--base00);
-  color:                 var(--font);
+  color:                  var(--font);
 }
 
 button:active{

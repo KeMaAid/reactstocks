@@ -60,13 +60,21 @@ class Stock extends React.Component{
                 ]}
                 layout={{
                     autocolorscale: true,
+                    autoscale: true,
                     font: {color: '#fff'},
                     plot_bgcolor: '#252525',
                     paper_bgcolor: '#252525',
+                    margin: {
+                        l: 40,
+                        r: 10,
+                        b: 20,
+                        t: 80,
+                        pad: 4
+                    },
                     xaxis: {color: '#fff'},
                     yaxis: {color: '#fff'},
-                    width: '440',
-                    height: '300',
+                    width:450,
+                    height:300,
                     title: this.props.stockSymbol}}
                 />
             </div>

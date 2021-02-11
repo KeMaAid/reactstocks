@@ -3,7 +3,7 @@ import StockList from './StockList.js'
 import { useState } from 'react';
 
 const ControlPanel = props => {
-    const [listMaxSize, setListMaxSize] = useState([10]);
+    const [listMaxSize, setListMaxSize] = useState([4]);
 
     function handleVisibleStockChange(stock, isAddition) {
         props.onVisibleStockChange(stock, isAddition)    
