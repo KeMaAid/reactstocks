@@ -61,6 +61,7 @@ class Stock extends React.Component{
                 layout={{
                     autocolorscale: true,
                     autoscale: true,
+                    autosize: true,
                     font: {color: '#fff'},
                     plot_bgcolor: '#252525',
                     paper_bgcolor: '#252525',

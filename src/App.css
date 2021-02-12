@@ -25,7 +25,6 @@ body{
 .StocksPanel{
   margin:                 0;
   padding:                0;
-  display:                block;
 }
 
 .StocksPanel .Chart{
@@ -36,24 +35,19 @@ body{
   border-radius:          20px;
 }
 
-@media only screen and (max-width: 600px){
+@media (max-width: 600px){
   .App{
     flex-direction:       column;
-    align-items:          stretch;
-    align-content:        stretch;
   }
-  .ControlPanel{
+  .ControlPanel, .StocksPanel{
     min-width:            stretch;
     max-width:            100% !important;
-  }
-  .StocksPanel{
-    min-width:            stretch;
   }
 }
 
 @media (min-width: 700px){
   .ControlPanel{
-    min-width:                 20%;
+    max-width:                 20%;
   }
 }
 
