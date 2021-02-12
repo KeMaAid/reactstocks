@@ -21,7 +21,10 @@ class Stock extends React.Component{
         let StockSymbol = this.props.stockSymbol;
         let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&apikey=${API_Key}`
         let stockChartXValuesFunction = [];
-        let stockChartYValuesFunction = [];
+        let stockChartCloseValuesFunction = [];
+        let stockChartOpenValuesFunction = [];
+        let stockChartHighValuesFunction = [];
+        let stockChartLowValuesFunction = [];
 
         fetch(API_Call)
             .then(
@@ -34,11 +37,17 @@ class Stock extends React.Component{
 
                     for(var key in data['Time Series (Daily)']){
                         stockChartXValuesFunction.push(key);
-                        stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['4. close']);
+                        stockChartCloseValuesFunction.push(data['Time Series (Daily)'][key]['4. close']);
+                        stockChartOpenValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
+                        stockChartHighValuesFunction.push(data['Time Series (Daily)'][key]['2. high']);
+                        stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['3. low']);
                     }
                     pointerToThis.setState({
                         stockChartXValues: stockChartXValuesFunction,
-                        stockChartYValues: stockChartYValuesFunction
+                        stockChartCloseValues: stockChartCloseValuesFunction,
+                        stockChartOpenValues: stockChartOpenValuesFunction,
+                        stockChartHighValues: stockChartHighValuesFunction,
+                        stockChartLowValues: stockChartLowValuesFunction,
                     });
                 }
             )
@@ -51,10 +60,35 @@ class Stock extends React.Component{
                 data={[
                     {
                         x: this.state.stockChartXValues,
-                        y: this.state.stockChartYValues,
+                        y: this.state.stockChartCloseValues,
                         type: 'scatter',
                         mode: 'lines+markers',
                         marker: {color: 'red'},
+                        name:"Close",
+                    },
+                    {
+                        x: this.state.stockChartXValues,
+                        y: this.state.stockChartOpenValues,
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        marker: {color: 'blue'},
+                        name:"Open",
+                    },
+                    {
+                        x: this.state.stockChartXValues,
+                        y: this.state.stockChartHighValues,
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        marker: {color: 'green'},
+                        name:"High",
+                    },
+                    {
+                        x: this.state.stockChartXValues,
+                        y: this.state.stockChartLowValues,
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        marker: {color: 'yellow'},
+                        name:"Low",
                     },
                     
                 ]}
