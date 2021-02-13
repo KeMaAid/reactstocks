@@ -6,9 +6,6 @@ const ListStocks = props => {
     useEffect(() => {
         let displayList = props.stocks.filter(stock => !props.hiddenStocks.includes(stock));
         let maxSize = props.listMaxSize;
-        if(isNaN(maxSize) || maxSize==="0"){
-            maxSize=10;
-        }
         setDisplay(displayList.slice(0, maxSize)); 
     }, [props]);
     

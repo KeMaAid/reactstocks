@@ -11,7 +11,7 @@ const ControlPanel = props => {
 
     return (
         <div className="ControlPanel">
-            <SettingList listMaxSize={listMaxSize} onListMaxSizeChange={value => setListMaxSize(value)}
+            <SettingList listMaxSize={listMaxSize} onListMaxSizeChange={value => !isNaN(value) ? setListMaxSize(value): null}
             />
             <StockList  onVisibleStockChange={handleVisibleStockChange} visibleStocks={props.visibleStocks} 
                         listMaxSize={listMaxSize}
