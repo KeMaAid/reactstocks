@@ -34,7 +34,9 @@ class Stock extends React.Component{
             )
             .then(
                 function(data){
-
+                    if (data.hasOwnProperty('Note')) {
+                        setTimeout(() => {fetch(API_Call)}, 60000);
+                    }
                     for(var key in data['Time Series (Daily)']){
                         stockChartXValuesFunction.push(key);
                         stockChartCloseValuesFunction.push(data['Time Series (Daily)'][key]['4. close']);

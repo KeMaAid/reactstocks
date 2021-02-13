@@ -34,6 +34,7 @@ const StockList = props =>{
                             };
                         } else if (data.hasOwnProperty('Note')) {
                             searchedStocks = [{ symbol: null, name: "Please wait" }];
+                            setTimeout(() => {fetchSearch(newSearch)}, 60000);
                         } else if (data.hasOwnProperty('Error Message')) {
                             searchedStocks = [{ symbol: null, name: "Invalid input" }];
                         }
