@@ -59,6 +59,17 @@ class Stock extends React.Component{
                 <Plot 
                 data={[
                     {
+                        x:this.state.stockChartXValues,
+                        close:this.state.stockChartCloseValues,
+                        open:this.state.stockChartOpenValues,
+                        high:this.state.stockChartHighValues,
+                        low:this.state.stockChartLowValues,
+                        
+                        type:"ohlc",
+                        yaxis:"y",
+                        xaxis:"x",
+                    },
+                    /* {
                         x: this.state.stockChartXValues,
                         y: this.state.stockChartCloseValues,
                         type: 'scatter',
@@ -89,7 +100,7 @@ class Stock extends React.Component{
                         mode: 'lines+markers',
                         marker: {color: 'yellow'},
                         name:"Low",
-                    },
+                    }, */
                     
                 ]}
                 layout={{
