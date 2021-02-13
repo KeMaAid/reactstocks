@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 function App() {
   const [visibleStocks, setVisibleStocks] = useState([]);
-  const [timeRange, setTimeRange] = useState([20, 60]);
 
   //isAddition ? addition : deletion
   function handleVisibleStockChange(changeStock, isAddition){
@@ -22,10 +21,9 @@ function App() {
 
   return (
     <div className="App">
-        <ControlPanel timeRange={timeRange} onTimeRangeChange={value => setTimeRange(value)}
-                      onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} 
+        <ControlPanel onVisibleStockChange={handleVisibleStockChange} visibleStocks={visibleStocks} 
         />
-        <StocksPanel visibleStocks={visibleStocks} timeRange={timeRange}/>
+        <StocksPanel visibleStocks={visibleStocks} />
     </div>
   );
 }
