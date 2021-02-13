@@ -1,5 +1,4 @@
 import Searchbar from "./SearchBar";
-import { Slider } from '@material-ui/core';
 
 const SettingList = props => {
 
