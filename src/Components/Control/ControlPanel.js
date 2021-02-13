@@ -12,7 +12,6 @@ const ControlPanel = props => {
     return (
         <div className="ControlPanel">
             <SettingList listMaxSize={listMaxSize} onListMaxSizeChange={value => setListMaxSize(value)}
-                        timeRange={props.timeRange} onTimeRangeChange={value => props.onTimeRangeChange(value)}
             />
             <StockList  onVisibleStockChange={handleVisibleStockChange} visibleStocks={props.visibleStocks} 
                         listMaxSize={listMaxSize}
