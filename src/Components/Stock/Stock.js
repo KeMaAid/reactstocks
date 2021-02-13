@@ -60,10 +60,11 @@ class Stock extends React.Component{
                 data={[
                     {
                         x:this.state.stockChartXValues,
-                        close:this.state.stockChartCloseValues,
-                        open:this.state.stockChartOpenValues,
-                        high:this.state.stockChartHighValues,
-                        low:this.state.stockChartLowValues,
+                        
+                        Open:this.state.stockChartOpenValues,
+                        Close:this.state.stockChartCloseValues,
+                        High:this.state.stockChartHighValues,
+                        Low:this.state.stockChartLowValues,
                         
                         type:"ohlc",
                         yaxis:"y",
