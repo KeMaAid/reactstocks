@@ -38,7 +38,7 @@ class Stock extends React.Component{
                         console.log("API timeout retrying in 60s");
                         setTimeout(() => {this.fetchStock()}, 60000);
                     }
-
+                    
                     for(var key in data['Time Series (Daily)']){
                         stockChartXValuesFunction.push(key);
                         stockChartCloseValuesFunction.push(data['Time Series (Daily)'][key]['4. close']);
@@ -65,47 +65,15 @@ class Stock extends React.Component{
                     {
                         x:this.state.stockChartXValues,
                         
-                        Open:this.state.stockChartOpenValues,
-                        Close:this.state.stockChartCloseValues,
-                        High:this.state.stockChartHighValues,
-                        Low:this.state.stockChartLowValues,
+                        open:this.state.stockChartOpenValues,
+                        close:this.state.stockChartCloseValues,
+                        high:this.state.stockChartHighValues,
+                        low:this.state.stockChartLowValues,
                         
                         type:"ohlc",
                         yaxis:"y",
                         xaxis:"x",
                     },
-                    /* {
-                        x: this.state.stockChartXValues,
-                        y: this.state.stockChartCloseValues,
-                        type: 'scatter',
-                        mode: 'lines+markers',
-                        marker: {color: 'red'},
-                        name:"Close",
-                    },
-                    {
-                        x: this.state.stockChartXValues,
-                        y: this.state.stockChartOpenValues,
-                        type: 'scatter',
-                        mode: 'lines+markers',
-                        marker: {color: 'blue'},
-                        name:"Open",
-                    },
-                    {
-                        x: this.state.stockChartXValues,
-                        y: this.state.stockChartHighValues,
-                        type: 'scatter',
-                        mode: 'lines+markers',
-                        marker: {color: 'green'},
-                        name:"High",
-                    },
-                    {
-                        x: this.state.stockChartXValues,
-                        y: this.state.stockChartLowValues,
-                        type: 'scatter',
-                        mode: 'lines+markers',
-                        marker: {color: 'yellow'},
-                        name:"Low",
-                    }, */
                     
                 ]}
                 layout={{
