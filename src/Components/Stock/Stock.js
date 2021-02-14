@@ -36,9 +36,9 @@ class Stock extends React.Component{
                 function(data){
                     if (data.hasOwnProperty('Note')) {
                         console.log("API timeout retrying in 60s");
-                        setTimeout(() => {this.fetchStock()}, 60000);
+                        setTimeout(() => {pointerToThis.fetchStock()}, 60000);
                     }
-                    
+
                     for(var key in data['Time Series (Daily)']){
                         stockChartXValuesFunction.push(key);
                         stockChartCloseValuesFunction.push(data['Time Series (Daily)'][key]['4. close']);
